@@ -1,15 +1,13 @@
-package com.poc.twitter.api;
+package com.poc.twitter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class TwitterApplication {
 
 	public static void main(String[] args) {
-
-		SpringApplication.run(Application.class, args);
-		System.out.println("Hello Twitter!");
+		SpringApplication.run(TwitterApplication.class, args);
 	}
 
 }
