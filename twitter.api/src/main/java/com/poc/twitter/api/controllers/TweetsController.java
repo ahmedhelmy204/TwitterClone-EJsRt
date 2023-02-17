@@ -49,6 +49,12 @@ public class TweetsController {
         }
     }
 
+    @GetMapping("/getByUser")
+    public ResponseEntity<List<Tweet>> getTweetByUser(@RequestParam String user){
+        List<Tweet> tweets= tweetService.findByUser(user);
+        return new ResponseEntity<List<Tweet>>(tweets, HttpStatus.OK);
+    }
+
     @GetMapping()
     public ResponseEntity<Iterable<Tweet>> getAllTweets(){
 

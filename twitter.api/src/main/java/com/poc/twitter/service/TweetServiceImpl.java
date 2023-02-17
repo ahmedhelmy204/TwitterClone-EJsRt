@@ -34,6 +34,11 @@ public class TweetServiceImpl implements TweetService {
       return tweet;
     }
 
+    public List<Tweet> findByUser(String user){
+        var tweets =  tweetRepository.findByUser(user);
+        return tweets;
+    }
+
     public Iterable<Tweet> findAll() {
         Iterable<Tweet> tweetList= tweetRepository.findAll();
         return tweetList;
