@@ -4,6 +4,7 @@ import com.poc.twitter.api.dto.TweetDto;
 import com.poc.twitter.core.entities.Tweet;
 import com.poc.twitter.data.TweetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.client.elc.QueryBuilders;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -48,4 +49,8 @@ public class TweetServiceImpl implements TweetService {
         Iterable<Tweet> tweetList= tweetRepository.findAll();
         return tweetList;
     }
+
+//    public List<Tweet> search(String query){
+//
+//    }
 }

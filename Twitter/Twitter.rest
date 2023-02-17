@@ -1,5 +1,7 @@
+@url = http://localhost:8080
+
 ###
-POST http://localhost:8080/api/tweets
+POST {{url}}/api/tweets
 Content-Type: application/json
 
 {
@@ -10,7 +12,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/api/tweets
+POST {{url}}/api/tweets
 Content-Type: application/json
 
 {
@@ -21,7 +23,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/api/tweets
+POST {{url}}/api/tweets
 Content-Type: application/json
 
 {
@@ -32,7 +34,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/api/tweets
+POST {{url}}/api/tweets
 Content-Type: application/json
 
 {
@@ -43,16 +45,30 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/tweets
+POST {{url}}/api/tweets
+Content-Type: application/json
+
+{
+    "id":"5",
+    "user":"Talha",
+    "message": "tweet 5",
+    "postDate":"2022-02-17"
+}
 
 ###
-GET http://localhost:8080/api/tweets/1
+GET {{url}}/api/tweets
 
 ###
-DELETE  http://localhost:8080/api/tweets/1
+GET {{url}}/api/tweets/1
 
 ###
-GET http://localhost:8080/api/tweets/getByUser?user=jenny
+DELETE  {{url}}/api/tweets/1
 
 ###
-GET http://localhost:8080/api/tweets/getByMessage?message=tweet
+GET {{url}}/api/tweets/getByUser?user=Jenny
+
+###
+GET {{url}}/api/tweets/getByMessage?message=tweet
+
+###
+GET {{url}}/api/tweets/getByMessage?message=my&amp;tweet

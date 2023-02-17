@@ -1,0 +1,66 @@
+@elasticsearch = http://localhost:9200
+
+###
+GET {{elasticsearch}}
+
+###
+GET {{elasticsearch}}/_cat/health?v
+
+###
+GET {{elasticsearch}}/_cat/nodes?v
+
+###
+GET {{elasticsearch}}/_cat/indices?v
+
+###
+DELETE {{elasticsearch}}/tweets
+
+###
+PUT {{elasticsearch}}/tweets
+Content-Type: application/json
+
+{
+    "settings": {
+        "index": {
+            "number_of_shards": 1,
+            "number_of_replicas": 1 
+        }
+    },
+    "mappings": {
+        "properties": {
+            "id": { "type": "integer" },
+            "user": { "type": "keyword" },
+            "message": { "type": "text" },
+            "postDate": { "type": "date" }
+      }
+    }
+}
+
+###
+GET {{elasticsearch}}/tweets
+
+###
+PUT {{elasticsearch}}/tweets/_doc/1
+Content-Type: application/json
+
+{
+  "id":"1",
+  "user":"helmy",
+  "message":"I am adding my first tweet!",
+  "postDate":"2022-12-08"
+}
+
+###
+GET {{elasticsearch}}/tweets/_doc/1
+
+###
+GET {{elasticsearch}}/tweets/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "match": {
+      "message": "my tweet"
+    }
+  }
+}
