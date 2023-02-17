@@ -29,6 +29,13 @@ public class TweetsController {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity deleteTweet(@PathVariable Integer id) {
+        tweetService.deleteTweet(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+
     @GetMapping("{id}")
     public ResponseEntity<Tweet> getTweet(@PathVariable Integer id){
 

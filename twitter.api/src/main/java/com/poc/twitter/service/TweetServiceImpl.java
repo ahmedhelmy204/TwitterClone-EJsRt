@@ -25,6 +25,10 @@ public class TweetServiceImpl implements TweetService {
         tweetRepository.save(tweet);
     }
 
+    public void deleteTweet(Integer id){
+        tweetRepository.deleteById(id);
+    }
+
     public Optional<Tweet> find(Integer id){
       var tweet =  tweetRepository.findById(id);
       return tweet;
