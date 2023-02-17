@@ -15,7 +15,11 @@ import java.time.LocalDate;
 public class Tweet {
     @Id
     private Integer id;
+
+    @Field(type = FieldType.Keyword, name = "user")
     private String user;
+
+    @Field(type = FieldType.Text, name = "message")
     private String message;
 
     @Field(type = FieldType.Date, name = "postDate")

@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "id":"1",
     "user":"Helmy",
-    "message": "tweet 1",
+    "message": "This is my first tweet. I will see how this tweet will show.",
     "postDate":"2022-02-15"
 }
 
@@ -53,3 +53,6 @@ DELETE  http://localhost:8080/api/tweets/1
 
 ###
 GET http://localhost:8080/api/tweets/getByUser?user=jenny
+
+###
+GET http://localhost:8080/api/tweets/getByMessage?message=tweet

@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface TweetRepository extends ElasticsearchRepository<Tweet,Integer> {
     List<Tweet> findByUser(String user);
+    List<Tweet> findByMessageContaining(String message);
 }

@@ -39,6 +39,11 @@ public class TweetServiceImpl implements TweetService {
         return tweets;
     }
 
+    public List<Tweet> findByMessage(String message){
+        var tweets =  tweetRepository.findByMessageContaining(message);
+        return tweets;
+    }
+
     public Iterable<Tweet> findAll() {
         Iterable<Tweet> tweetList= tweetRepository.findAll();
         return tweetList;
