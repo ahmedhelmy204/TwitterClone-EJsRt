@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/tweets")
@@ -22,6 +23,25 @@ public class TweetsController {
         this.tweetService = tweetService;
     }
 
+    @PostMapping()
+    public ResponseEntity createTweet(@RequestBody Tweet tweet) {
+        tweetService.createTweet(tweet);
+        return new ResponseEntity(HttpStatus.CREATED);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Tweet> getTweet(@PathVariable Integer id){
+
+        Optional<Tweet> tweet = tweetService.find(id);
+
+        if(tweet.isEmpty()) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        else {
+            return new ResponseEntity<Tweet>(tweet.get(), HttpStatus.OK);
+        }
+    }
+
     @GetMapping()
     public ResponseEntity<Iterable<Tweet>> getAllTweets(){
 
@@ -31,11 +51,4 @@ public class TweetsController {
 
         return new ResponseEntity<Iterable<Tweet>>(tweetsList, HttpStatus.OK);
     }
-
-    @PostMapping("")
-    public ResponseEntity createTweet(@RequestBody Tweet tweet) {
-        tweetService.createTweet(tweet);
-        return new ResponseEntity(HttpStatus.OK);
-    }
-
 }

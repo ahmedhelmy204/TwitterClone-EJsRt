@@ -1,7 +1,4 @@
 ###
-GET http://localhost:8080/api/tweets
-
-###
 POST http://localhost:8080/api/tweets
 Content-Type: application/json
 
@@ -44,3 +41,9 @@ Content-Type: application/json
     "message": "tweet 3",
     "postDate":"2022-02-17"
 }
+
+###
+GET http://localhost:8080/api/tweets
+
+###
+GET http://localhost:8080/api/tweets/1

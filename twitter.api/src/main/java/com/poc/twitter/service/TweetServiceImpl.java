@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TweetServiceImpl implements TweetService {
@@ -20,16 +21,17 @@ public class TweetServiceImpl implements TweetService {
         this.tweetRepository = tweetRepository;
     }
 
-    public Iterable<Tweet> findAll() {
-        List<Tweet> tweets = new ArrayList<Tweet>();
-        tweets.add(new Tweet(1,"Ahmed", "My first tweet", LocalDate.parse("2022-02-15")));
-        tweets.add(new Tweet(2,"Ghadi", "Second Tweet", LocalDate.parse("2022-02-16")));
-        tweets.add(new Tweet(3,"Jenny","Third Tweet", LocalDate.parse("2022-02-17")));
-        Iterable<Tweet> tweetList= tweetRepository.findAll();
-        return tweetList;
-    }
-
     public void createTweet(Tweet tweet){
         tweetRepository.save(tweet);
+    }
+
+    public Optional<Tweet> find(Integer id){
+      var tweet =  tweetRepository.findById(id);
+      return tweet;
+    }
+
+    public Iterable<Tweet> findAll() {
+        Iterable<Tweet> tweetList= tweetRepository.findAll();
+        return tweetList;
     }
 }
