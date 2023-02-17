@@ -1,29 +1,41 @@
 package com.poc.twitter.api.controllers;
 
 import com.poc.twitter.api.dto.TweetDto;
+import com.poc.twitter.core.entities.Tweet;
+import com.poc.twitter.service.TweetService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/tweets")
 public class TweetsController {
+    private TweetService tweetService;
+
+    @Autowired
+    public void TweetsController(TweetService tweetService) {
+        this.tweetService = tweetService;
+    }
 
     @GetMapping()
-    public ResponseEntity<List<TweetDto>> getAllTweets(){
+    public ResponseEntity<Iterable<Tweet>> getAllTweets(){
+
+        Iterable<Tweet> tweetsList= tweetService.findAll();
 
         List<TweetDto> tweets = new ArrayList<TweetDto>();
-        tweets.add(new TweetDto(1,"Ahmed", "My first tweet", LocalDate.parse("2022-02-15")));
-        tweets.add(new TweetDto(2,"Ghadi", "Second Tweet", LocalDate.parse("2022-02-16")));
-        tweets.add(new TweetDto(3,"Jenny","Third Tweet", LocalDate.parse("2022-02-17")));
 
-        return new ResponseEntity<List<TweetDto>>(tweets, HttpStatus.OK);
+        return new ResponseEntity<Iterable<Tweet>>(tweetsList, HttpStatus.OK);
     }
+
+    @PostMapping("")
+    public ResponseEntity createTweet(@RequestBody Tweet tweet) {
+        tweetService.createTweet(tweet);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
 }

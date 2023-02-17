@@ -1,2 +1,46 @@
-##
+###
 GET http://localhost:8080/api/tweets
+
+###
+POST http://localhost:8080/api/tweets
+Content-Type: application/json
+
+{
+    "id":"1",
+    "user":"Helmy",
+    "message": "tweet 1",
+    "postDate":"2022-02-15"
+}
+
+###
+POST http://localhost:8080/api/tweets
+Content-Type: application/json
+
+{
+    "id":"2",
+    "user":"Ghadi",
+    "message": "tweet 2",
+    "postDate":"2022-02-16"
+}
+
+###
+POST http://localhost:8080/api/tweets
+Content-Type: application/json
+
+{
+    "id":"3",
+    "user":"Jenny",
+    "message": "tweet 3",
+    "postDate":"2022-02-17"
+}
+
+###
+POST http://localhost:8080/api/tweets
+Content-Type: application/json
+
+{
+    "id":"4",
+    "user":"Yassine",
+    "message": "tweet 3",
+    "postDate":"2022-02-17"
+}
