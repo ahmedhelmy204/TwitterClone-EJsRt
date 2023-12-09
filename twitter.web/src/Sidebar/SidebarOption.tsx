@@ -1,4 +1,4 @@
-import React, { Component, FC } from 'react'
+import { FC } from 'react'
 import "./SidebarOption.css"
 
 interface Props {

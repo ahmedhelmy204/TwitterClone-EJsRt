@@ -1,4 +1,3 @@
-import React from 'react';
 import './Sidebar.css';
 import SidebarOption from './SidebarOption';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -16,7 +15,7 @@ import { Button } from '@mui/material';
 function Sidebar() {
     return (
         <div className="sidebar">
-            <TwitterIcon />
+            <TwitterIcon className='sidebar__twitterIcon'/>
 
             <SidebarOption active text="Home" Icon={HomeIcon} />
             <SidebarOption text="Explore" Icon={SearchIcon} />

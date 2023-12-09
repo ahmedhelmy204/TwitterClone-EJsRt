@@ -1,18 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Sidebar from './Sidebar';
+import Sidebar from './Sidebar/Sidebar';
+import Feed from './Feed/Feed';
+import Widgets from './Widgets/Widgets';
 
 function App() {
   return (
     <div className="app">
-      <h1>Twitter Clone</h1>
-
       <Sidebar />
 
-      {/* Feed */}
+      <Feed />
 
-      {/* Widgets */}
+      <Widgets />
     </div>
   );
 }
