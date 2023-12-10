@@ -1,13 +1,13 @@
 import { FC } from 'react'
 import "./SidebarOption.css"
 
-interface Props {
+interface SidebarOptionProps {
     active?: boolean;
     text: string;
     Icon: FC;
 }
 
-const SidebarOption = (props: Props) => {
+const SidebarOption = (props: SidebarOptionProps) => {
 
     return  (
         <div className={`sidebarOption ${props.active && 'sidebarOption--active'}`}>
