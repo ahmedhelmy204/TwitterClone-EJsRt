@@ -15,58 +15,57 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/tweets")
 public class TweetsController {
-    private TweetService tweetService;
+     private TweetService tweetService;
 
-    @Autowired
-    public void TweetsController(TweetService tweetService) {
-        this.tweetService = tweetService;
-    }
+     @Autowired
+     public void TweetsController(TweetService tweetService) {
+         this.tweetService = tweetService;
+     }
 
     @PostMapping()
     public ResponseEntity createTweet(@RequestBody Tweet tweet) {
-        tweetService.createTweet(tweet);
+         tweetService.createTweet(tweet);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity deleteTweet(@PathVariable Integer id) {
-        tweetService.deleteTweet(id);
+         tweetService.deleteTweet(id);
         return new ResponseEntity(HttpStatus.OK);
     }
-
 
     @GetMapping("{id}")
     public ResponseEntity<Tweet> getTweet(@PathVariable Integer id){
 
-        Optional<Tweet> tweet = tweetService.find(id);
+         Optional<Tweet> tweet = tweetService.find(id);
 
-        if(tweet.isEmpty()) {
+         if(tweet.isEmpty()) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
-        else {
-            return new ResponseEntity<Tweet>(tweet.get(), HttpStatus.OK);
-        }
+         }
+         else {
+             return new ResponseEntity<Tweet>(tweet.get(), HttpStatus.OK);
+         }
     }
 
-    @GetMapping("/getByUser")
-    public ResponseEntity<List<Tweet>> getTweetByUser(@RequestParam String user){
-        List<Tweet> tweets= tweetService.findByUser(user);
-        return new ResponseEntity<List<Tweet>>(tweets, HttpStatus.OK);
-    }
+     @GetMapping("/getByUser")
+     public ResponseEntity<List<Tweet>> getTweetByUser(@RequestParam String user){
+         List<Tweet> tweets= tweetService.findByUser(user);
+         return new ResponseEntity<List<Tweet>>(tweets, HttpStatus.OK);
+     }
 
-    @GetMapping("/getByMessage")
-    public ResponseEntity<List<Tweet>> getTweetByMessage(@RequestParam String message){
-        List<Tweet> tweets= tweetService.findByMessage(message);
-        return new ResponseEntity<List<Tweet>>(tweets, HttpStatus.OK);
-    }
+     @GetMapping("/getByMessage")
+     public ResponseEntity<List<Tweet>> getTweetByMessage(@RequestParam String message){
+         List<Tweet> tweets= tweetService.findByMessage(message);
+         return new ResponseEntity<List<Tweet>>(tweets, HttpStatus.OK);
+     }
 
-    @GetMapping()
-    public ResponseEntity<Iterable<Tweet>> getAllTweets(){
+     @GetMapping()
+     public ResponseEntity<Iterable<Tweet>> getAllTweets(){
 
-        Iterable<Tweet> tweetsList= tweetService.findAll();
+         Iterable<Tweet> tweetsList= tweetService.findAll();
 
-        List<TweetDto> tweets = new ArrayList<TweetDto>();
+         List<TweetDto> tweets = new ArrayList<TweetDto>();
 
-        return new ResponseEntity<Iterable<Tweet>>(tweetsList, HttpStatus.OK);
-    }
+         return new ResponseEntity<Iterable<Tweet>>(tweetsList, HttpStatus.OK);
+     }
 }

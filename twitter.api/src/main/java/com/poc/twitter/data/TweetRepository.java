@@ -1,11 +1,11 @@
-package com.poc.twitter.data;
+ package com.poc.twitter.data;
 
-import com.poc.twitter.core.entities.Tweet;
-import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+ import com.poc.twitter.core.entities.Tweet;
+ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
-import java.util.List;
+ import java.util.List;
 
-public interface TweetRepository extends ElasticsearchRepository<Tweet,Integer> {
-    List<Tweet> findByUser(String user);
-    List<Tweet> findByMessageContaining(String message);
-}
+ public interface TweetRepository extends ElasticsearchRepository<Tweet,Integer> {
+     List<Tweet> findByUser(String user);
+     List<Tweet> findByMessageContaining(String message);
+ }

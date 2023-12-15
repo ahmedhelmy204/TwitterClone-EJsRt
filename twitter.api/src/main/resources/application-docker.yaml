@@ -1,0 +1,7 @@
+spring:
+  elasticsearch:
+    uris: http://elasticsearch:9200
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true

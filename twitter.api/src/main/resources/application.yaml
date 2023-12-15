@@ -1,0 +1,24 @@
+debug: true
+trace: true
+
+logging:
+  org:
+    springframework: DEBUG
+
+management:
+  health:
+    elasticsearch:
+      enabled: true
+
+spring:
+  elasticsearch:
+    uris: localhost:9200
+    connection-timeout: 10s
+    username: elastic
+    password: P@ssw0rd
+    rest:
+      read-timeout: 1m
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true

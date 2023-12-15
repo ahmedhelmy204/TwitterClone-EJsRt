@@ -1,29 +1,18 @@
-version: "3.5"
+version: "3.7"
 
 services:
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
-    ports:
-      - 9200:9200
-      # - 9300:9300
-    volumes:
-      - ./conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+  twitter-service-api:
+    build: ../../twitter.api
+    container_name: twitter-api
+    restart: unless-stopped
     environment:
-      - discovery.type=single-node
-      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
-    # networks:
-    #   - twitter
-  # kibana:
-  #   image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
-  #   ports:
-  #     - 5601:5601
-  #   volumes:
-  #     - ./conf/kibana.yml:/usr/share/kibana/config/kibana.yml
-  #   networks:
-  #     - twitter
-  #   depends_on:
-  #     - elasticsearch
-
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - 8080:8080
+    networks:
+      - twitter
+  
 networks:
   twitter:
-    driver: bridge
+    name: twitter-network
+    external: true

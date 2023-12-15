@@ -7,12 +7,12 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PublishIcon from '@mui/icons-material/Publish';
 
 interface PostProps {
-    // displayName;
-    // username;
-    // verified;
+    displayName: string;
+    username: string;
+    verified: boolean;
     // timestamp;
-    // text;
-    // image;
+    text: string;
+    image: string;
     // avatar;
 }
 
@@ -26,18 +26,18 @@ function Post(props: PostProps) {
                 <div className="post__header">
                     <div className="post__headerText">
                         <h3>
-                            Ahmed Helmy {" "}
+                        {props.displayName + " "}
                             <span className='post__headerSpecial'>
-                                <VerifiedIcon className='post__badge' />
-                                @helmy204
+                                {props.verified && <VerifiedIcon className='post__badge' />}
+                                @{props.username}
                             </span>
                         </h3>
                     </div>
                     <div className="post__headerDescription">
-                        <p>I challenge you to build a Twitter Clone with React!!!</p>
+                        <p>{props.text}</p>
                     </div>
                 </div>
-                <img src="https://media.giphy.com/media/26tk0jALFpsXmAF8c/giphy.gif" alt="" />
+                <img src={props.image} alt="" />
                 <div className="post__footer">
                     <ChatBubbleOutlineIcon fontSize="small" />
                     <RepeatIcon fontSize="small" />
