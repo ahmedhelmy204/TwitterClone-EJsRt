@@ -5,6 +5,20 @@ logging:
   org:
     springframework: DEBUG
 
+domain:
+  host:
+    name: twitter-api
+    cors-origins:
+      allowed-methods:
+        - GET
+        - POST
+        - PATCH
+        - PUT
+        - HEAD
+        - DELETE
+      allowed-origins:
+        - http://localhost:3000
+
 management:
   health:
     elasticsearch:

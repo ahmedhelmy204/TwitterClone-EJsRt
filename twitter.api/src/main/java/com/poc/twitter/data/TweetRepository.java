@@ -6,6 +6,6 @@
  import java.util.List;
 
  public interface TweetRepository extends ElasticsearchRepository<Tweet,Integer> {
-     List<Tweet> findByUser(String user);
-     List<Tweet> findByMessageContaining(String message);
+     List<Tweet> findByUsername(String username);
+     List<Tweet> findByTextContaining(String text);
  }

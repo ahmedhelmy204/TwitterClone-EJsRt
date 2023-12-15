@@ -29,8 +29,11 @@ Content-Type: application/json
     "mappings": {
         "properties": {
             "id": { "type": "integer" },
-            "user": { "type": "keyword" },
-            "message": { "type": "text" },
+            "displayName": { "type": "keyword" },
+            "username": { "type": "keyword" },
+            "verified": {"type": "boolean"},
+            "text": { "type": "text" },
+            "image": { "type": "text" },
             "postDate": { "type": "date" }
       }
     }
@@ -45,8 +48,11 @@ Content-Type: application/json
 
 {
   "id":"1",
-  "user":"helmy",
-  "message":"I am adding my first tweet!",
+  "displayName": "Ahmed Helmy",
+  "username":"helmy204",
+  "verified": true,
+  "text":"Hello from Twitter Clone with React!",
+  "image":"https://media.giphy.com/media/26tk0jALFpsXmAF8c/giphy.gif",
   "postDate":"2022-12-08"
 }
 

@@ -48,14 +48,14 @@ public class TweetsController {
     }
 
      @GetMapping("/getByUser")
-     public ResponseEntity<List<Tweet>> getTweetByUser(@RequestParam String user){
-         List<Tweet> tweets= tweetService.findByUser(user);
+     public ResponseEntity<List<Tweet>> getTweetByUsername(@RequestParam String username){
+         List<Tweet> tweets= tweetService.findByUsername(username);
          return new ResponseEntity<List<Tweet>>(tweets, HttpStatus.OK);
      }
 
-     @GetMapping("/getByMessage")
-     public ResponseEntity<List<Tweet>> getTweetByMessage(@RequestParam String message){
-         List<Tweet> tweets= tweetService.findByMessage(message);
+     @GetMapping("/getByText")
+     public ResponseEntity<List<Tweet>> getTweetByText(@RequestParam String text){
+         List<Tweet> tweets= tweetService.findByText(text);
          return new ResponseEntity<List<Tweet>>(tweets, HttpStatus.OK);
      }
 

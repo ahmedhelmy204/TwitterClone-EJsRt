@@ -5,18 +5,12 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PublishIcon from '@mui/icons-material/Publish';
+import {Tweet} from './types/tweet';
 
-interface PostProps {
-    displayName: string;
-    username: string;
-    verified: boolean;
-    // timestamp;
-    text: string;
-    image: string;
-    // avatar;
-}
+// interface PostProps:Tweet {
+// }
 
-function Post(props: PostProps) {
+function Post(props: Tweet) {
     return (
         <div className='post'>
             <div className="post__avatar">

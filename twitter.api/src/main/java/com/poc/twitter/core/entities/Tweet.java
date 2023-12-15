@@ -14,19 +14,31 @@ public class Tweet {
     @Id
     private Integer id;
 
-    @Field(type = FieldType.Keyword, name = "user")
-    private String user;
+    @Field(type = FieldType.Keyword, name = "displayName")
+    private String displayName;
 
-    @Field(type = FieldType.Text, name = "message")
-    private String message;
+    @Field(type = FieldType.Keyword, name = "username")
+    private String username;
+
+    @Field(type = FieldType.Keyword, name = "verified")
+    private Boolean verified;
+
+    @Field(type = FieldType.Text, name = "text")
+    private String text;
+
+    @Field(type = FieldType.Text, name = "image")
+    private String image;
 
     @Field(type = FieldType.Date, name = "postDate")
     private LocalDate postDate;
 
-    public Tweet(int id,String user,String message,LocalDate postDate){
+    public Tweet(int id, String displayName, String username, Boolean verified,String text, String image,LocalDate postDate){
         this.id= id;
-        this.user = user;
-        this.message = message;
+        this.displayName = displayName;
+        this.username = username;
+        this.verified = verified;
+        this.text = text;
+        this.image = image;
         this.postDate=postDate;
     }
 }

@@ -35,13 +35,13 @@
        return tweet;
      }
 
-     public List<Tweet> findByUser(String user){
-         var tweets =  tweetRepository.findByUser(user);
+     public List<Tweet> findByUsername(String username){
+         var tweets =  tweetRepository.findByUsername(username);
          return tweets;
      }
 
-     public List<Tweet> findByMessage(String message){
-         var tweets =  tweetRepository.findByMessageContaining(message);
+     public List<Tweet> findByText(String text){
+         var tweets =  tweetRepository.findByTextContaining(text);
          return tweets;
      }
 

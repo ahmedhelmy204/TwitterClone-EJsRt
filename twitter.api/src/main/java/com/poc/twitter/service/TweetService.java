@@ -9,7 +9,7 @@ public interface TweetService {
     void createTweet(Tweet tweet);
     void deleteTweet(Integer id);
     Optional<Tweet> find(Integer id);
-    List<Tweet> findByUser(String user);
-    List<Tweet> findByMessage(String message);
+    List<Tweet> findByUsername(String username);
+    List<Tweet> findByText(String text);
     Iterable<Tweet> findAll();
 }
