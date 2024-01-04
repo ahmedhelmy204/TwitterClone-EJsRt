@@ -5,11 +5,10 @@ POST {{url}}/api/tweets
 Content-Type: application/json
 
 {
-    "id":"1",
     "displayName": "Ahmed Helmy",
     "username":"helmy204",
     "verified": true,
-    "text":"Hello from Twitter Clone with React!",
+    "message":"Hello from Twitter Clone with React!",
     "image":"https://media.giphy.com/media/26tk0jALFpsXmAF8c/giphy.gif",
     "postDate":"2022-12-08"
 }
@@ -20,11 +19,10 @@ POST {{url}}/api/tweets
 Content-Type: application/json
 
 {
-    "id":"2",
     "displayName": "Hala Khallaf",
     "username": "halakhallaf",
     "verified": false,
-    "text": "I can tweet now",
+    "message": "I can tweet now",
     "image":"",
     "postDate":"2023-12-15"
 }
@@ -34,11 +32,10 @@ POST {{url}}/api/tweets
 Content-Type: application/json
 
 {
-    "id":"3",
     "displayName":"Omar Salama",
     "username": "omarsalama",
     "verified": false,
-    "text": "YOOO its working!",
+    "message": "YOOO its working!",
     "image":"",
     "postDate":"2022-02-17"
 }

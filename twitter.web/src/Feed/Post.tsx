@@ -28,7 +28,7 @@ function Post(props: Tweet) {
                         </h3>
                     </div>
                     <div className="post__headerDescription">
-                        <p>{props.text}</p>
+                        <p>{props.message}</p>
                     </div>
                 </div>
                 <img src={props.image} alt="" />

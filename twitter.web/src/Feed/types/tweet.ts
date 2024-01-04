@@ -3,7 +3,7 @@ export interface Tweet {
     username: string;
     verified: boolean;
     // timestamp;
-    text: string;
+    message: string;
     image: string;
     // avatar;
 }

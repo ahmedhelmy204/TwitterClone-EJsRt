@@ -4,20 +4,18 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class TweetDto {
-    public int Id;
     public String DisplayName;
     public String Username;
     public Boolean Verified;
-    public String Text;
+    public String Message;
     public String Image;
     public LocalDate PostDate;
 
-    public TweetDto(int id, String displayName, String username, Boolean verified, String text, String image, LocalDate postDate){
-        Id= id;
+    public TweetDto(String displayName, String username, Boolean verified, String message, String image, LocalDate postDate){
         DisplayName = displayName;
         Username = username;
         Verified = verified;
-        Text = text;
+        Message = message;
         Image = image;
         PostDate=postDate;
     }

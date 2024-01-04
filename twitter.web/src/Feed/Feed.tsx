@@ -7,11 +7,16 @@ import {Tweet} from './types/tweet';
 
 function Feed() {
 
-    useEffect(()=>{
-        axios.get('http://localhost:8080/api/tweets').then((response)=>{
-            setTweets(response.data.content);
-        });
+    useEffect(() =>{
+        const loadTweetList = async ()=> {
+           await loadTweets();
+        }
     }, []);
+
+    const loadTweets = async () => {
+        let response =  await axios.get('http://localhost:8080/api/tweets');
+        setTweets(response.data.content);
+    }
 
     const [tweets, setTweets] = useState([]);
 
@@ -21,7 +26,7 @@ function Feed() {
                 <h2>Home</h2>
             </div>
 
-            <TweetBox />
+            <TweetBox refreshTweetList={loadTweets}/>
 
             {tweets.map((tweet:Tweet, index) => (
                 tweet && <Post key={index} {...tweet} />

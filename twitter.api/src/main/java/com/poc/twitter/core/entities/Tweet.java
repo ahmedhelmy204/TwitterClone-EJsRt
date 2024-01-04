@@ -23,8 +23,8 @@ public class Tweet {
     @Field(type = FieldType.Keyword, name = "verified")
     private Boolean verified;
 
-    @Field(type = FieldType.Text, name = "text")
-    private String text;
+    @Field(type = FieldType.Text, name = "message")
+    private String message;
 
     @Field(type = FieldType.Text, name = "image")
     private String image;
@@ -32,12 +32,12 @@ public class Tweet {
     @Field(type = FieldType.Date, name = "postDate")
     private LocalDate postDate;
 
-    public Tweet(int id, String displayName, String username, Boolean verified,String text, String image,LocalDate postDate){
+    public Tweet(int id, String displayName, String username, Boolean verified, String message, String image,LocalDate postDate){
         this.id= id;
         this.displayName = displayName;
         this.username = username;
         this.verified = verified;
-        this.text = text;
+        this.message = message;
         this.image = image;
         this.postDate=postDate;
     }

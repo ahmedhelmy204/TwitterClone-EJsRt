@@ -53,9 +53,9 @@ public class TweetsController {
          return new ResponseEntity<List<Tweet>>(tweets, HttpStatus.OK);
      }
 
-     @GetMapping("/getByText")
-     public ResponseEntity<List<Tweet>> getTweetByText(@RequestParam String text){
-         List<Tweet> tweets= tweetService.findByText(text);
+     @GetMapping("/getByMessage")
+     public ResponseEntity<List<Tweet>> getTweetByMessage(@RequestParam String message){
+         List<Tweet> tweets = tweetService.findByMessage(message);
          return new ResponseEntity<List<Tweet>>(tweets, HttpStatus.OK);
      }
 

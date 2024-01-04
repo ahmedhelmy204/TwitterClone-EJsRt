@@ -24,6 +24,18 @@ services:
   #     - twitter
   #   depends_on:
   #     - elasticsearch
+  keycloak:
+    image: docker.io/bitnami/keycloak:22
+    container_name: keycloak
+    ports:
+      - 1010:8080
+    # volumes:
+    #   - ./conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    # environment:
+    #   - discovery.type=single-node
+    #   - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+    networks:
+      - twitter
 
 networks:
   twitter:

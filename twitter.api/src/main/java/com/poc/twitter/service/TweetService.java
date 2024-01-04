@@ -10,6 +10,6 @@ public interface TweetService {
     void deleteTweet(Integer id);
     Optional<Tweet> find(Integer id);
     List<Tweet> findByUsername(String username);
-    List<Tweet> findByText(String text);
+    List<Tweet> findByMessage(String message);
     Iterable<Tweet> findAll();
 }

@@ -7,5 +7,5 @@
 
  public interface TweetRepository extends ElasticsearchRepository<Tweet,Integer> {
      List<Tweet> findByUsername(String username);
-     List<Tweet> findByTextContaining(String text);
+     List<Tweet> findByMessageContaining(String message);
  }

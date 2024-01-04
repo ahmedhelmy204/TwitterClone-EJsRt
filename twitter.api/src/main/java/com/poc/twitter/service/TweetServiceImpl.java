@@ -40,8 +40,8 @@
          return tweets;
      }
 
-     public List<Tweet> findByText(String text){
-         var tweets =  tweetRepository.findByTextContaining(text);
+     public List<Tweet> findByMessage(String message){
+         var tweets =  tweetRepository.findByMessageContaining(message);
          return tweets;
      }
 
