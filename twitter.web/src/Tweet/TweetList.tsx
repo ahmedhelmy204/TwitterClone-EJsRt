@@ -1,16 +1,20 @@
-import './Feed.css'
-import TweetBox from './TweetBox';
-import Post from './Post';
 import { useEffect, useState } from 'react';
+import Post from '../Tweet/Post';
+import TweetBox from '../Tweet/TweetBox';
+import {Tweet} from './types';
 import axios from 'axios';
-import {Tweet} from './types/tweet';
+import './TweetList.css'
 
-function Feed() {
+const TweetList = () => {
+
+    const [tweets, setTweets] = useState([]);
 
     useEffect(() =>{
         const loadTweetList = async ()=> {
            await loadTweets();
-        }
+        };
+
+        loadTweetList();
     }, []);
 
     const loadTweets = async () => {
@@ -18,23 +22,15 @@ function Feed() {
         setTweets(response.data.content);
     }
 
-    const [tweets, setTweets] = useState([]);
-
     return (
-        <div className="feed">
-            <div className="feed__header">
-                <h2>Home</h2>
-            </div>
-
+        <>
             <TweetBox refreshTweetList={loadTweets}/>
 
             {tweets.map((tweet:Tweet, index) => (
                 tweet && <Post key={index} {...tweet} />
             ))}
-            
-            
-        </div>
+        </>
     );
 }
 
-export default Feed;
+export default TweetList;
