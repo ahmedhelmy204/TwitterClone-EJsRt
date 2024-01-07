@@ -1,16 +1,21 @@
 import { Avatar } from '@mui/material';
-import './Post.css'
+import './Tweet.css'
 import VerifiedIcon from '@mui/icons-material/Verified';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PublishIcon from '@mui/icons-material/Publish';
-import {Tweet} from './types';
+import {Tweet} from '../logic/tweets.types';
 
-// interface PostProps:Tweet {
-// }
+interface PostProps {
+    tweet: Tweet;
+    selectPost:any; 
+};
 
-function Post(props: Tweet) {
+function Post(props: PostProps) {
+
+    let tweet = props.tweet;
+
     return (
         <div className='post'>
             <div className="post__avatar">
@@ -20,18 +25,18 @@ function Post(props: Tweet) {
                 <div className="post__header">
                     <div className="post__headerText">
                         <h3>
-                        {props.displayName + " "}
+                        {props.tweet.displayName + " "}
                             <span className='post__headerSpecial'>
-                                {props.verified && <VerifiedIcon className='post__badge' />}
-                                @{props.username}
+                                {props.tweet.verified && <VerifiedIcon className='post__badge' />}
+                                @{props.tweet.username}
                             </span>
                         </h3>
                     </div>
-                    <div className="post__headerDescription">
-                        <p>{props.message}</p>
+                <div onClick={()=> props.selectPost({...tweet})} className="post__headerDescription">
+                        <p>{props.tweet.message}</p>
                     </div>
                 </div>
-                <img src={props.image} alt="" />
+                <img src={props.tweet.image} alt="" />
                 <div className="post__footer">
                     <ChatBubbleOutlineIcon fontSize="small" />
                     <RepeatIcon fontSize="small" />

@@ -1,35 +1,36 @@
 import { Avatar, Button } from '@mui/material';
 import './TweetBox.css'
 import { useState } from 'react';
-import axios from 'axios';
+import { Tweet } from '../logic/tweets.types';
 
 interface TweetBoxProps {
-    refreshTweetList:any
+    addTweet:any
 }
 
 function TweetBox(props: TweetBoxProps) {
 
     const [message, setMessage] = useState('');
 
-    const postTweet = async (e: any) => {
+    const handleOnSubmit = async (e: any) => {
+
         e.preventDefault();
 
-        await axios.post('http://localhost:8080/api/tweets', {
-            "displayName":"Ahmed Helmy",
-            "username": "helmy204",
-            "verified": true,
-            "message": message,
-            "image":"",
-            "postDate":"2023-12-15"
-        });
+        let tweet : Tweet = {
+            displayName: "Ahmed Helmy",
+            username: "helmy204",
+            verified: true,
+            message: message,
+            image:""
+        }
+
+        await props.addTweet(tweet);
 
         setMessage('');
-        props.refreshTweetList();
-    };
+    }
 
     return (
         <div className='tweetBox'>
-            <form onSubmit={postTweet}>
+            <form onSubmit={handleOnSubmit}>
                 <div className="tweetBox__input">
                     <Avatar src='https://thispersondoesnotexist.com/' />
                     <input 
